@@ -32,17 +32,18 @@ Project state
 |                        |                    |                                  |
 
 ### User interface
-| Feature                                               | State              | Progress                 |
-| ----------------------------------------------------- | ------------------ | ------------------------ |
-| Tabs for categories                                   | :white_check_mark: |                          |
-| List of matches                                       | :white_check_mark: |                          |
-| Label Field                                           | :x:                | WIP                      |
-| Trigger Field                                         | :white_check_mark: |                          |
-| Replace Field                                         | :x:                | WIP                      |
-| Options Field (word, propagate_case, uppercase_style) | :x:                | WIP, in need of redesign |
-| Variables                                             | :x:                | WIP                      |
-| Form Fields                                           | :x:                | WIP                      |
-|                                                       |                    |                          |
+| Feature                    | State              | Progress |
+| -------------------------- | ------------------ | -------- |
+| Tabs for categories        | :white_check_mark: |          |
+| List of matches            | :white_check_mark: |          |
+| Label Field                | :x:                | WIP      |
+| Trigger Field              | :white_check_mark: |          |
+| Replace Field              | :x:                | WIP      |
+| Propagate Case Field       | :white_check_mark: |          |
+| Uppercase Style Field      | :white_check_mark: |          |
+| Trigger Only On Word Field | :white_check_mark: |          |
+| Variables Field            | :x:                | WIP      |
+| Form Fields Field          | :x:                | WIP      |
 
 
 
