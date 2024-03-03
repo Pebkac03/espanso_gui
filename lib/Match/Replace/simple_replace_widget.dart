@@ -39,7 +39,7 @@ class _SimpleReplaceWidgetState extends State<SimpleReplaceWidget> {
         tag: 'this is my tag',
         child: Container(
           padding: EdgeInsets.all(8),
-          width: 300,
+          // width: 300,
           decoration: BoxDecoration(
               border: Border.all(
                   style: BorderStyle.solid, width: 0.5, color: Colors.black),
@@ -66,7 +66,7 @@ class _SimpleReplaceWidgetState extends State<SimpleReplaceWidget> {
           },
           child: Container(
             alignment: Alignment.centerLeft,
-            width: 100,
+            // width: 100,
             decoration: BoxDecoration(
                 border: Border.all(
                     style: BorderStyle.solid,

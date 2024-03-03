@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:quiver/collection.dart';
 
 class TriggersWidget extends StatefulWidget {
-  final String trigger;
+  String trigger;
 
   TriggersWidget({super.key, required this.trigger});
 
@@ -35,17 +35,12 @@ class _TriggersWidgetState extends State<TriggersWidget> {
                 _overflowReplacement = null;
               });
             },
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Text(
-                  _controller.text,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(overflow: TextOverflow.ellipsis),
-                ),
-              ),
+            child: Text(
+              _controller.text,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(overflow: TextOverflow.ellipsis),
             ),
           );
         });
@@ -54,45 +49,25 @@ class _TriggersWidgetState extends State<TriggersWidget> {
 
     final theme = Theme.of(context);
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          padding: EdgeInsets.all(0),
-          decoration: BoxDecoration(
-            border: Border.all(),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          width: 200,
-          child: AutoSizeTextField(
-            autofocus: true,
-            focusNode: _focusNode,
-            overflowReplacement: _overflowReplacement,
-            decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 4),
-              border: OutlineInputBorder(
-                  borderSide: BorderSide.none, gapPadding: 0),
-              filled: false,
-              focusColor: null,
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide.none, gapPadding: 0),
-            ),
-            maxFontSize: theme.textTheme.bodyMedium?.fontSize ?? 0,
-            minFontSize: theme.textTheme.bodyMedium?.fontSize ?? 0,
-            textAlignVertical: TextAlignVertical.center,
-            maxLines: 1,
-            style: Theme.of(context).textTheme.bodyMedium,
-            controller: _controller,
-          ),
-        ),
-        IconButton.outlined(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.delete,
-            color: Colors.red,
-          ),
-        )
-      ],
+    return AutoSizeTextField(
+      onChanged: (value) => widget.trigger = value,
+      autofocus: true,
+      focusNode: _focusNode,
+      overflowReplacement: _overflowReplacement,
+      decoration: const InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 4),
+        border: OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0),
+        filled: false,
+        focusColor: null,
+        focusedBorder:
+            OutlineInputBorder(borderSide: BorderSide.none, gapPadding: 0),
+      ),
+      maxFontSize: theme.textTheme.bodyMedium?.fontSize ?? 0,
+      minFontSize: theme.textTheme.bodyMedium?.fontSize ?? 0,
+      textAlignVertical: TextAlignVertical.center,
+      maxLines: 1,
+      style: Theme.of(context).textTheme.bodyMedium,
+      controller: _controller,
     );
   }
 }

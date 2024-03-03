@@ -39,10 +39,8 @@ class _MatchCategoriesWidgetState extends State<MatchCategoriesWidget> {
             length: widgets.length,
             child: Column(
               children: [
-                SizedBox(height: 40, child: TabBar(tabs: titles)),
-                Expanded(
-                  child: SizedBox(child: TabBarView(children: widgets)),
-                ),
+                SizedBox(height: 40, width: 800, child: TabBar(tabs: titles)),
+                Expanded(child: TabBarView(children: widgets)),
               ],
             )),
       ),
