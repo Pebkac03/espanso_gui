@@ -61,31 +61,47 @@ class EspansoMatches {
   }
 }
 
+/// Basic class of a Espanso Match
 class EspansoMatch {
+  /// string to trigger expansion
   String? trigger;
+
+  /// what the trigger expands to
   String replace;
+
+  ///
   String label;
+
+  /// alternative to replace, opens a form to fill out
   bool form;
+
+  /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
   bool propagateCase;
+
+  /// if propagateCase should capitalise each word. `false` by default
   bool capitaliseEachWord;
+
+  /// only trigger on matching word
   bool triggerOnWord;
+
+  /// list of variables
   List<dynamic>? vars;
+
+  /// optional arguments for form fields
   Map<String, EspansoFormField>? formFields;
-  //add cursor hints functionality
-  //add image functionality
+  // TODO: add cursor hints functionality
+  // TODO: add image functionality
 
   EspansoMatch({
-    this.trigger, // string to trigger expansion
-    this.replace = '', //what the trigger expands to
-    this.form = false, //alternative to replace, opens a form to fill out
-    this.label = '', //description for match
-    this.propagateCase =
-        false, //ex. alh - although, Alh - Although, ALH - ALTHOUGH
-    this.capitaliseEachWord =
-        false, //if propagateCase should capitalise each word
-    this.triggerOnWord = false, //only trigger on matching word
-    this.vars, //list of variables
-    this.formFields, //optional arguments for form fields
+    this.trigger,
+    this.replace = '',
+    this.label = '',
+    this.form = false,
+    this.propagateCase = false,
+    this.capitaliseEachWord = false,
+    this.triggerOnWord = false,
+    this.vars,
+    this.formFields,
   });
 
   factory EspansoMatch.fromYaml(YamlMap yaml) {
