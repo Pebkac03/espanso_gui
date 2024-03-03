@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: const Text(
               'Espanso GUI, the program does currently not modify the Espanso config files')),
       body: MatchesScreen(),
-      drawer: ListView(children: [Text('testing the drawer')]),
+      drawer: ListView(children: const [Text('testing the drawer')]),
     );
   }
 }
