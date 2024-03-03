@@ -6,7 +6,7 @@ import 'Options/options_widget.dart';
 import 'Replace/replace_widget.dart';
 import 'Triggers/triggers_widget.dart';
 import 'match_class.dart';
-
+/*
 class MatchWidget extends StatefulWidget {
   const MatchWidget({super.key, required this.match});
 
@@ -29,14 +29,10 @@ class _MatchWidgetState extends State<MatchWidget> {
           ),
           // SimpleReplaceWidget(text: widget.match.replace),
           TriggersWidget(trigger: widget.match.replace),
-          OptionsWidget(
-            form: widget.match.form,
-            propagateCase: widget.match.propagateCase,
-            capitalizeEachWord: widget.match.capitaliseEachWord,
-            triggerOnWord: widget.match.triggerOnWord,
-          )
+          
         ],
       ),
     );
   }
 }
+*/

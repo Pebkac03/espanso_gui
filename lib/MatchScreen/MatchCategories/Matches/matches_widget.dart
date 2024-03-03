@@ -1,3 +1,4 @@
+import 'package:espanso_gui/Match/Options/options_widget.dart';
 import 'package:espanso_gui/Match/Replace/simple_replace_widget.dart';
 import 'package:espanso_gui/Match/Triggers/triggers_widget.dart';
 import 'package:espanso_gui/Match/match_widget.dart';
@@ -29,9 +30,21 @@ class _MatchesWidgetState extends State<MatchesWidget> {
           showEditIcon: true,
           TriggersWidget(trigger: match.replace),
         ),
-        DataCell(Text('test')),
-        DataCell(Text('test')),
-        DataCell(Text('test')),
+        DataCell(
+          OptionsWidget(
+            option: match.propagateCase,
+          ),
+        ),
+        DataCell(
+          OptionsWidget(
+            option: match.capitaliseEachWord,
+          ),
+        ),
+        DataCell(
+          OptionsWidget(
+            option: match.triggerOnWord,
+          ),
+        ),
       ]);
     }).toList();
 

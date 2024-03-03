@@ -33,15 +33,19 @@ class _MatchCategoriesWidgetState extends State<MatchCategoriesWidget> {
     }).toList();
 
     return Expanded(
-      child: Padding(
-        padding: EdgeInsets.all(100),
+      child: Container(
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(top: 100, left: 40),
         child: DefaultTabController(
             length: widgets.length,
-            child: Column(
-              children: [
-                SizedBox(height: 40, width: 800, child: TabBar(tabs: titles)),
-                Expanded(child: TabBarView(children: widgets)),
-              ],
+            child: SizedBox(
+              width: 830,
+              child: Column(
+                children: [
+                  SizedBox(height: 40, width: 800, child: TabBar(tabs: titles)),
+                  Expanded(child: TabBarView(children: widgets)),
+                ],
+              ),
             )),
       ),
     );
