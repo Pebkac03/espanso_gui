@@ -5,6 +5,7 @@ import 'package:yaml/yaml.dart';
 
 import 'Match/match_class.dart';
 import 'Match/match_widget.dart';
+import 'MatchScreen/match_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,44 +39,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Map> espansoConfig = [
-    {'type': 'test'},
-    {'type': 'test2'}
-  ];
-
   @override
   Widget build(BuildContext context) {
-    final Map<String, List<EspansoMatch?>?>? matches =
-        widget.matches ?? EspansoMatches.fromYaml().matches;
-    print(matches);
-
-    Widget buildColumn() {
-      List<ExpansionTile>? widgets = [];
-      matches?.forEach((String key, List<EspansoMatch?>? match) {
-        final List<EspansoMatch>? newMatch =
-            match?.toList().cast<EspansoMatch>();
-        widgets.add(ExpansionTile(
-          title: Text(/*key*/ '\u23f8',
-              style: Theme.of(context).textTheme.headlineSmall),
-          children: newMatch?.map(
-                (e) {
-                  return MatchWidget(match: e);
-                },
-              ).toList() ??
-              [],
-        ));
-      });
-      return ListView(
-        children: widgets,
-      );
-    }
-
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: buildColumn(),
+      body: MatchesScreen(),
+      drawer: ListView(children: [Text('testing the drawer')]),
     );
   }
 }

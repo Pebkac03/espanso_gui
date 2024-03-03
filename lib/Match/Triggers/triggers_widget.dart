@@ -15,35 +15,12 @@ class TriggersWidget extends StatefulWidget {
 
 class _TriggersWidgetState extends State<TriggersWidget> {
   final FocusNode _focusNode = FocusNode();
+  final TextEditingController _controller = TextEditingController();
 
   Widget? _overflowReplacement;
 
-  final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    Widget _getPlaceholder(text) {
-      return TapRegion(
-        onTapInside: (event) {
-          setState(() {
-            _overflowReplacement = null;
-          });
-        },
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Text(
-              text,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(overflow: TextOverflow.ellipsis),
-            ),
-          ),
-        ),
-      );
-    }
-
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         setState(() {
@@ -51,11 +28,31 @@ class _TriggersWidgetState extends State<TriggersWidget> {
         });
       } else {
         setState(() {
-          _overflowReplacement = _getPlaceholder(_controller.text);
+          _overflowReplacement = TapRegion(
+            onTapInside: (event) {
+              setState(() {
+                _overflowReplacement = null;
+              });
+            },
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  _controller.text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(overflow: TextOverflow.ellipsis),
+                ),
+              ),
+            ),
+          );
         });
       }
     });
+
     final theme = Theme.of(context);
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
