@@ -1,8 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
-import 'package:quiver/collection.dart';
 import 'package:yaml/yaml.dart';
 import 'dart:io';
 
@@ -24,12 +19,12 @@ class EspansoMatches {
         r'\AppData\Roaming\espanso\match';
     // debugPrint('Espanso config path' + home);
     final Map<String, List<dynamic>> parsedYaml = {};
-    final Map<String, List<EspansoMatch?>?>? parsedMatches = {};
+    final Map<String, List<EspansoMatch?>?> parsedMatches = {};
     Directory(home).listSync().forEach((FileSystemEntity e) {
       if (e is File) {
         final name = e.path.split(r'\').last.replaceAll('.yml', '');
         parsedYaml[name] = loadYaml(e.readAsStringSync())['matches'];
-        parsedMatches?[name] = parsedYaml[name]?.map((value) {
+        parsedMatches[name] = parsedYaml[name]?.map((value) {
           return EspansoMatch.fromYaml(value);
           //parsedMatches[key]
         }).toList();
@@ -38,8 +33,8 @@ class EspansoMatches {
     return EspansoMatches._internal(matches: parsedMatches, yaml: []);
   }
 
-  void add(index) {
-    matches?[Category]!.insert(index, EspansoMatch(vars: []));
+  void add(category, index) {
+    matches?[category]!.insert(index, EspansoMatch(vars: []));
   }
 
   void remove(category, index) {

@@ -1,4 +1,3 @@
-import 'package:espanso_gui/Match/match_class.dart';
 import 'package:flutter/material.dart';
 
 class OptionsWidget extends StatefulWidget {

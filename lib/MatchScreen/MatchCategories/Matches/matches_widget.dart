@@ -1,14 +1,12 @@
 import 'package:espanso_gui/Match/Options/options_widget.dart';
-import 'package:espanso_gui/Match/Replace/simple_replace_widget.dart';
 import 'package:espanso_gui/Match/Triggers/triggers_widget.dart';
-import 'package:espanso_gui/Match/match_widget.dart';
 import 'package:data_table_2/data_table_2.dart';
 
 import '/Match/match_class.dart';
 import 'package:flutter/material.dart';
 
 class MatchesWidget extends StatefulWidget {
-  MatchesWidget({this.matches});
+  const MatchesWidget({super.key, this.matches});
   final List<EspansoMatch>? matches;
   @override
   State<MatchesWidget> createState() => _MatchesWidgetState();

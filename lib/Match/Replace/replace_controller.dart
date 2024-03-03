@@ -63,10 +63,10 @@ class WidgetSpanTextEditingController extends TextEditingController {
     print('build text span called');
 
     final Map<String, Widget> cases = {
-      r'/u23f8\w*\u23f8': FlutterLogo(),
-      r'/u23f9\w*\u23f9': FlutterLogo(),
-      r'/u23fa\w*\u23fa': FlutterLogo(),
-      r'\{{\w*}}': FlutterLogo(),
+      r'/u23f8\w*\u23f8': const FlutterLogo(),
+      r'/u23f9\w*\u23f9': const FlutterLogo(),
+      r'/u23fa\w*\u23fa': const FlutterLogo(),
+      r'\{{\w*}}': const FlutterLogo(),
     };
 
     final List<Map<String, dynamic>> allWidgets = [];
@@ -74,7 +74,7 @@ class WidgetSpanTextEditingController extends TextEditingController {
 
     cases.forEach((pattern, widget) {
       if (RegExp(pattern).hasMatch(text)) {
-        print('match found!' + pattern);
+        print('match found!$pattern');
         final RegExp matchPattern = RegExp(pattern);
         matchPattern.allMatches(text).forEach((match) {
           allWidgets

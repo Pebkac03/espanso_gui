@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class SimpleReplaceWidget extends StatefulWidget {
   final String text;
@@ -38,7 +35,7 @@ class _SimpleReplaceWidgetState extends State<SimpleReplaceWidget> {
       return Hero(
         tag: 'this is my tag',
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           // width: 300,
           decoration: BoxDecoration(
               border: Border.all(

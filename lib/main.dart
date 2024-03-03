@@ -1,10 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:yaml/yaml.dart';
 
 import 'Match/match_class.dart';
-import 'Match/match_widget.dart';
 import 'MatchScreen/match_screen.dart';
 
 void main() {
@@ -23,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -32,7 +28,7 @@ class MyHomePage extends StatefulWidget {
   final Map<String, List<EspansoMatch>>? matches;
   final String title;
 
-  MyHomePage({super.key, required this.title, this.matches});
+  const MyHomePage({super.key, required this.title, this.matches});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -45,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           title: const Text(
               'Espanso GUI, the program does currently not modify the Espanso config files')),
-      body: MatchesScreen(),
+      body: const MatchesScreen(),
       drawer: ListView(children: const [Text('testing the drawer')]),
     );
   }

@@ -1,4 +1,3 @@
-import 'package:espanso_gui/Match/match_widget.dart';
 import 'package:espanso_gui/MatchScreen/MatchCategories/Matches/matches_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +34,7 @@ class _MatchCategoriesWidgetState extends State<MatchCategoriesWidget> {
     return Expanded(
       child: Container(
         alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(top: 100, left: 40),
+        padding: const EdgeInsets.only(top: 100, left: 40),
         child: DefaultTabController(
             length: widgets.length,
             child: SizedBox(
