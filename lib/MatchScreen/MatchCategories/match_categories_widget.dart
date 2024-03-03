@@ -23,15 +23,18 @@ class _MatchCategoriesWidgetState extends State<MatchCategoriesWidget> {
       return MatchesWidget(matches: value);
     }).toList();
 
-    List<Tab> titles = matches.keys.map((key) {
-      return Tab(
-        text: key,
+    List<Widget> titles = matches.keys.map((key) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Tab(
+          text: key,
+        ),
       );
     }).toList();
 
     return Expanded(
       child: Padding(
-        padding: EdgeInsets.all(40),
+        padding: EdgeInsets.all(100),
         child: DefaultTabController(
             length: widgets.length,
             child: Column(

@@ -27,7 +27,8 @@ class _MatchWidgetState extends State<MatchWidget> {
           TriggersWidget(
             trigger: widget.match.trigger ?? '',
           ),
-          SimpleReplaceWidget(text: widget.match.replace),
+          // SimpleReplaceWidget(text: widget.match.replace),
+          TriggersWidget(trigger: widget.match.replace),
           OptionsWidget(
             form: widget.match.form,
             propagateCase: widget.match.propagateCase,

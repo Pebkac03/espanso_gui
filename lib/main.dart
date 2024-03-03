@@ -42,6 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: const Text(
+              'Espanso GUI, the program does currently not modify the Espanso config files')),
       body: MatchesScreen(),
       drawer: ListView(children: [Text('testing the drawer')]),
     );

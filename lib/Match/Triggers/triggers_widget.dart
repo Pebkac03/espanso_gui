@@ -21,6 +21,7 @@ class _TriggersWidgetState extends State<TriggersWidget> {
 
   @override
   Widget build(BuildContext context) {
+    _controller.text = widget.trigger;
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         setState(() {
