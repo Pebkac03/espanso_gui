@@ -1,4 +1,5 @@
 import 'package:espanso_gui/Match/Options/options_widget.dart';
+import 'package:espanso_gui/Match/Replace/new_replace.dart';
 import 'package:espanso_gui/Match/Triggers/triggers_widget.dart';
 import 'package:data_table_2/data_table_2.dart';
 
@@ -25,8 +26,7 @@ class _MatchesWidgetState extends State<MatchesWidget> {
           TriggersWidget(trigger: match.trigger ?? ''),
         ),
         DataCell(
-          showEditIcon: true,
-          TriggersWidget(trigger: match.replace),
+          NewReplaceWidget(trigger: match.replace),
         ),
         DataCell(
           OptionsWidget(
