@@ -14,9 +14,11 @@ class _OverlayEditorState extends State<OverlayEditor> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).canvasColor,
+      // color: Theme.of(context).canvasColor,
       child: AppFlowyEditor(
+        autoFocus: true,
         editorState: _controller,
+        editorStyle: const EditorStyle.desktop(),
       ),
     );
   }

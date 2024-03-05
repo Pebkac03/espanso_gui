@@ -1,0 +1,352 @@
+import 'package:appflowy_editor/appflowy_editor.dart';
+import 'package:flutter/material.dart';
+
+import 'espanso_selection_menu_icon.dart';
+import 'espanso_selection_menu_widget.dart';
+
+abstract class EspansoSelectionMenuService {
+  Offset get offset;
+  Alignment get alignment;
+  EspansoSelectionMenuStyle get style;
+
+  void show();
+  void dismiss();
+
+  (double? left, double? top, double? right, double? bottom) getPosition();
+}
+
+class EspansoSelectionMenu extends EspansoSelectionMenuService {
+  EspansoSelectionMenu({
+    required this.context,
+    required this.editorState,
+    required this.espansoSelectionMenuItems,
+    this.deleteAtByDefault = true,
+    this.style = EspansoSelectionMenuStyle.light,
+    this.itemCountFilter = 0,
+  });
+
+  final BuildContext context;
+  final EditorState editorState;
+  final List<EspansoSelectionMenuItem> espansoSelectionMenuItems;
+  final bool deleteAtByDefault;
+  @override
+  final EspansoSelectionMenuStyle style;
+
+  OverlayEntry? _espansoSelectionMenuEntry;
+  bool _selectionUpdateByInner = false;
+  Offset _offset = Offset.zero;
+  Alignment _alignment = Alignment.topLeft;
+  int itemCountFilter;
+
+  @override
+  void dismiss() {
+    if (_espansoSelectionMenuEntry != null) {
+      editorState.service.keyboardService?.enable();
+      editorState.service.scrollService?.enable();
+    }
+
+    _espansoSelectionMenuEntry?.remove();
+    _espansoSelectionMenuEntry = null;
+
+    // workaround: SelectionService has been released after hot reload.
+    final isSelectionDisposed =
+        editorState.service.selectionServiceKey.currentState == null;
+    if (!isSelectionDisposed) {
+      final selectionService = editorState.service.selectionService;
+      // focus to reload the selection after the menu dismissed.
+      editorState.selection = editorState.selection;
+      selectionService.currentSelection.removeListener(_onSelectionChange);
+    }
+  }
+
+  @override
+  void show() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _show();
+    });
+  }
+
+  void _show() {
+    dismiss();
+
+    final selectionService = editorState.service.selectionService;
+    final selectionRects = selectionService.selectionRects;
+    if (selectionRects.isEmpty) {
+      return;
+    }
+
+    calculateespansoSelectionMenuOffset(selectionRects.first);
+    final (left, top, right, bottom) = getPosition();
+
+    final editorHeight = editorState.renderBox!.size.height;
+    final editorWidth = editorState.renderBox!.size.width;
+
+    _espansoSelectionMenuEntry = OverlayEntry(
+      builder: (context) {
+        return SizedBox(
+          width: editorWidth,
+          height: editorHeight,
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              dismiss();
+            },
+            child: Stack(
+              children: [
+                Positioned(
+                  top: top,
+                  bottom: bottom,
+                  left: left,
+                  right: right,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: EspansoSelectionMenuWidget(
+                      espansoSelectionMenuStyle: style,
+                      items: espansoSelectionMenuItems
+                        ..forEach((element) {
+                          element.deleteAt = deleteAtByDefault;
+                          element.onSelected = () {
+                            dismiss();
+                          };
+                        }),
+                      maxItemInRow: 5,
+                      editorState: editorState,
+                      itemCountFilter: itemCountFilter,
+                      menuService: this,
+                      onExit: () {
+                        dismiss();
+                      },
+                      onSelectionUpdate: () {
+                        _selectionUpdateByInner = true;
+                      },
+                      deleteAtByDefault: deleteAtByDefault,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+
+    Overlay.of(context, rootOverlay: true).insert(_espansoSelectionMenuEntry!);
+
+    editorState.service.keyboardService?.disable(showCursor: true);
+    editorState.service.scrollService?.disable();
+    selectionService.currentSelection.addListener(_onSelectionChange);
+  }
+
+  @override
+  Alignment get alignment {
+    return _alignment;
+  }
+
+  @override
+  Offset get offset {
+    return _offset;
+  }
+
+  void _onSelectionChange() {
+    // workaround: SelectionService has been released after hot reload.
+    final isSelectionDisposed =
+        editorState.service.selectionServiceKey.currentState == null;
+    if (!isSelectionDisposed) {
+      final selectionService = editorState.service.selectionService;
+      if (selectionService.currentSelection.value == null) {
+        return;
+      }
+    }
+
+    if (_selectionUpdateByInner) {
+      _selectionUpdateByInner = false;
+      return;
+    }
+
+    dismiss();
+  }
+
+  @override
+  (double? left, double? top, double? right, double? bottom) getPosition() {
+    double? left, top, right, bottom;
+    switch (alignment) {
+      case Alignment.topLeft:
+        left = offset.dx;
+        top = offset.dy;
+        break;
+      case Alignment.bottomLeft:
+        left = offset.dx;
+        bottom = offset.dy;
+        break;
+      case Alignment.topRight:
+        right = offset.dx;
+        top = offset.dy;
+        break;
+      case Alignment.bottomRight:
+        right = offset.dx;
+        bottom = offset.dy;
+        break;
+    }
+
+    return (left, top, right, bottom);
+  }
+
+  void calculateespansoSelectionMenuOffset(Rect rect) {
+    // Workaround: We can customize the padding through the [EditorStyle],
+    // but the coordinates of overlay are not properly converted currently.
+    // Just subtract the padding here as a result.
+    const menuHeight = 200.0;
+    const menuOffset = Offset(0, 10);
+    final editorOffset =
+        editorState.renderBox?.localToGlobal(Offset.zero) ?? Offset.zero;
+    final editorHeight = editorState.renderBox!.size.height;
+    final editorWidth = editorState.renderBox!.size.width;
+
+    // show below default
+    _alignment = Alignment.topLeft;
+    final bottomRight = rect.bottomRight;
+    final topRight = rect.topRight;
+    var offset = bottomRight + menuOffset;
+    _offset = Offset(
+      offset.dx,
+      offset.dy,
+    );
+
+    // show above
+    if (offset.dy + menuHeight >= editorOffset.dy + editorHeight) {
+      offset = topRight - menuOffset;
+      _alignment = Alignment.bottomLeft;
+
+      _offset = Offset(
+        offset.dx,
+        MediaQuery.of(context).size.height - offset.dy,
+      );
+    }
+
+    // show on left
+    if (_offset.dx - editorOffset.dx > editorWidth / 2) {
+      _alignment = _alignment == Alignment.topLeft
+          ? Alignment.topRight
+          : Alignment.bottomRight;
+
+      _offset = Offset(
+        editorWidth - _offset.dx + editorOffset.dx,
+        _offset.dy,
+      );
+    }
+  }
+}
+
+final List<EspansoSelectionMenuItem> standardEspansoSelectionMenuItems = [
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.text,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'text',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['text'],
+    handler: (editorState, _, __) {
+      insertNodeAfterSelection(editorState, paragraphNode());
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.heading1,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'h1',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['heading 1, h1'],
+    handler: (editorState, _, __) {
+      insertHeadingAfterSelection(editorState, 1);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.heading2,
+    icon: (editorState, isSelected, style) => espansoSelectionMenuIconWidget(
+      name: 'h2',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['heading 2, h2'],
+    handler: (editorState, _, __) {
+      insertHeadingAfterSelection(editorState, 2);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.heading3,
+    icon: (editorState, isSelected, style) => espansoSelectionMenuIconWidget(
+      name: 'h3',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['heading 3, h3'],
+    handler: (editorState, _, __) {
+      insertHeadingAfterSelection(editorState, 3);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.image,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'image',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['image'],
+    handler: (editorState, menuService, context) {
+      final container = Overlay.of(context, rootOverlay: true);
+      showImageMenu(container, editorState, menuService);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.bulletedList,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'bulleted_list',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['bulleted list', 'list', 'unordered list'],
+    handler: (editorState, _, __) {
+      insertBulletedListAfterSelection(editorState);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.numberedList,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'number',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['numbered list', 'list', 'ordered list'],
+    handler: (editorState, _, __) {
+      insertNumberedListAfterSelection(editorState);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.checkbox,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'checkbox',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['todo list', 'list', 'checkbox list'],
+    handler: (editorState, _, __) {
+      insertCheckboxAfterSelection(editorState);
+    },
+  ),
+  EspansoSelectionMenuItem(
+    getName: () => AppFlowyEditorL10n.current.quote,
+    icon: (editorState, isSelected, style) => EspansoSelectionMenuIconWidget(
+      name: 'quote',
+      isSelected: isSelected,
+      style: style,
+    ),
+    keywords: ['quote', 'refer'],
+    handler: (editorState, _, __) {
+      insertQuoteAfterSelection(editorState);
+    },
+  ),
+  dividerMenuItem,
+  tableMenuItem,
+];
