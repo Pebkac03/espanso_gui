@@ -32,18 +32,18 @@ Project state
 |                        |                    |                                  |
 
 ### User interface
-| Feature                    | State              | Progress |
-| -------------------------- | ------------------ | -------- |
-| Tabs for categories        | :white_check_mark: |          |
-| List of matches            | :white_check_mark: |          |
-| Label Field                | :x:                | WIP      |
-| Trigger Field              | :white_check_mark: |          |
-| Replace Field              | :x:                | WIP      |
-| Propagate Case Field       | :white_check_mark: |          |
-| Uppercase Style Field      | :white_check_mark: |          |
-| Trigger Only On Word Field | :white_check_mark: |          |
-| Variables Field            | :x:                | WIP      |
-| Form Fields Field          | :x:                | WIP      |
+| Feature                    | State              | Progress                                                   |
+| -------------------------- | ------------------ | ---------------------------------------------------------- |
+| Tabs for categories        | :white_check_mark: |                                                            |
+| List of matches            | :white_check_mark: |                                                            |
+| Label Field                | :x:                | WIP                                                        |
+| Trigger Field              | :white_check_mark: |                                                            |
+| Replace Field              | :x:                | WIP [#3](https://github.com/Pebkac03/espanso_gui/issues/3) |
+| Propagate Case Field       | :white_check_mark: |                                                            |
+| Uppercase Style Field      | :white_check_mark: |                                                            |
+| Trigger Only On Word Field | :white_check_mark: |                                                            |
+| Variables Field            | :x:                | WIP                                                        |
+| Form Fields Field          | :x:                | WIP                                                        |
 
 
 
