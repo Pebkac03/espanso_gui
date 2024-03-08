@@ -25,6 +25,24 @@ class _NewReplaceWidgetState extends State<NewReplaceWidget> {
   @override
   Widget build(BuildContext context) {
     _controller.text = widget.replace;
+    if (_overflowReplacement == null && !_focusNode.hasFocus) {
+      setState(() {
+        _overflowReplacement = TapRegion(
+          onTapInside: (event) {
+            setState(() {
+              _overflowReplacement = null;
+            });
+          },
+          child: Text(
+            _controller.text.replaceAll('\n', ' '),
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(overflow: TextOverflow.ellipsis),
+          ),
+        );
+      });
+    }
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         setState(() {
