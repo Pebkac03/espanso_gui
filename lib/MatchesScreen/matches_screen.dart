@@ -62,12 +62,12 @@ class _MatchesScreenState extends State<MatchesScreen> {
       child: DefaultTabController(
           length: widgets.length,
           child: SizedBox(
-            width: 830,
+            width: 1030,
             child: Column(
               children: [
                 Container(
                     height: 55,
-                    width: 800,
+                    width: 1000,
                     padding: const EdgeInsets.only(bottom: 15),
                     child: TabBar(
                       onTap: (e) => hideOverlay(),

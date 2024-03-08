@@ -4,6 +4,7 @@ import 'package:espanso_gui/MatchesScreen/Match/Replace/overlay_editor/overlay_e
 import 'package:espanso_gui/MatchesScreen/Match/Triggers/triggers_widget.dart';
 import 'package:data_table_2/data_table_2.dart';
 
+import 'Match/Variables/variables_widget.dart';
 import 'Match/match_class.dart';
 import 'package:flutter/material.dart';
 
@@ -56,6 +57,7 @@ class _MatchesWidgetState extends State<MatchesWidget> {
             option: match.triggerOnWord,
           ),
         ),
+        DataCell(VariablesWidget())
       ]);
     }).toList();
 
@@ -104,6 +106,12 @@ class _MatchesWidgetState extends State<MatchesWidget> {
                 fixedWidth: 120,
                 label: Text(
                   'Trigger on word',
+                  textAlign: TextAlign.center,
+                )),
+            DataColumn2(
+                fixedWidth: 80,
+                label: Text(
+                  'Variables',
                   textAlign: TextAlign.center,
                 ))
           ],
