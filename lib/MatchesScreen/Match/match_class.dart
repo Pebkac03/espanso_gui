@@ -117,7 +117,7 @@ class EspansoMatch {
         return yaml['replace'];
       } else {
         form = true;
-        return yaml['form'];
+        return yaml['form'] ?? yaml['markdown'];
       }
     }
 

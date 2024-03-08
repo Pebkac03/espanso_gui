@@ -41,7 +41,7 @@ dependencies:
   quiver: ^3.2.1
   auto_size_text_field: ^2.2.2
   data_table_2: ^2.5.11
-  appflowy_editor: ^2.3.2
+  rich_text_controller: ^1.4.2
 
 dev_dependencies:
   flutter_test:
