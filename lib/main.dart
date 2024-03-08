@@ -1,8 +1,7 @@
-import 'package:appflowy_editor/appflowy_editor.dart';
 import 'package:flutter/material.dart';
 
-import 'Match/match_class.dart';
-import 'MatchScreen/match_screen.dart';
+import 'MatchesScreen/Match/match_class.dart';
+import 'MatchesScreen/matches_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,11 +15,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      localizationsDelegates: const [
-        AppFlowyEditorLocalizations.delegate,
-      ],
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+          background: const Color.fromARGB(255, 230, 230, 230),
+        ),
+        tabBarTheme: const TabBarTheme(
+          unselectedLabelColor: Colors.black,
+          indicatorSize: TabBarIndicatorSize.tab,
+          dividerColor: Colors.black,
+          dividerHeight: 0.5,
+          labelPadding: EdgeInsets.symmetric(horizontal: 8),
+        ),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
