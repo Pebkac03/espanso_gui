@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'MatchesScreen/Match/match_class.dart';
 import 'MatchesScreen/matches_screen.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: GoogleFonts.manropeTextTheme(),
         colorScheme:
             ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
           background: const Color.fromARGB(255, 230, 230, 230),

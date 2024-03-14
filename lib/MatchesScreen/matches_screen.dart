@@ -51,7 +51,7 @@ class _MatchesScreenState extends State<MatchesScreen> {
       return Padding(
         padding: const EdgeInsets.all(8.0),
         child: Tab(
-          text: key,
+          child: Text(key, style: Theme.of(context).textTheme.headlineSmall),
         ),
       );
     }).toList();
@@ -66,7 +66,7 @@ class _MatchesScreenState extends State<MatchesScreen> {
             child: Column(
               children: [
                 Container(
-                    height: 55,
+                    height: 60,
                     width: 1000,
                     padding: const EdgeInsets.only(bottom: 15),
                     child: TabBar(

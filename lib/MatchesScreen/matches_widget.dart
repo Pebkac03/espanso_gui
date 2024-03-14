@@ -77,41 +77,65 @@ class _MatchesWidgetState extends State<MatchesWidget> {
           border: TableBorder.all(),
           headingTextStyle: Theme.of(context).textTheme.titleSmall,
           headingRowHeight: height,
-          columns: const [
+          columns: [
             DataColumn2(
                 fixedWidth: 100,
                 label: Text(
-                  'trigger',
+                  'Trigger',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 )),
             DataColumn2(
                 fixedWidth: 250,
                 label: Text(
-                  'replace',
+                  'Replace',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 )),
             DataColumn2(
                 fixedWidth: 130,
                 label: Text(
                   'Propagate Case',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 )),
             DataColumn2(
                 fixedWidth: 170,
                 label: Text(
                   'Capitalize Each Word',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 )),
             DataColumn2(
                 fixedWidth: 120,
                 label: Text(
                   'Trigger on word',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 )),
             DataColumn2(
                 fixedWidth: 80,
                 label: Text(
                   'Variables',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ))
           ],
