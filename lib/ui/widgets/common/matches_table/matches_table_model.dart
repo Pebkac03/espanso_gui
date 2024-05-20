@@ -82,6 +82,20 @@ class MatchesTableModel extends BaseViewModel {
     rebuildUi();
   }
 
+  void updatePropagateCase(int index, bool value) {
+    debugPrint('propagateCase: Updated propagateCase to $value');
+    _matches[index] = _matches[index].copyWith(propagateCase: value);
+    _rows?[index] = _updateRow(index);
+    rebuildUi();
+  }
+
+  void updateOnlyOnWord(int index, bool value) {
+    debugPrint('onlyOnWord: Updated Require Word to $value');
+    _matches[index] = _matches[index].copyWith(onlyOnWord: value);
+    _rows?[index] = _updateRow(index);
+    rebuildUi();
+  }
+
   void removeMatch(File file, int index) {
     _matches.removeAt(index);
   }
