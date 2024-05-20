@@ -107,8 +107,8 @@ class MatchesTable extends StackedView<MatchesTableModel> {
           child: Checkbox(
             value: rendererContext.cell.value,
             onChanged: (value) {
-              rendererContext.stateManager
-                  .changeCellValue(rendererContext.cell, '$value');
+              int index = rendererContext.rowIdx;
+              viewModel.updatePropagateCase(index, value!);
               debugPrint(
                   'MatchesTable: changed cell value to ${rendererContext.cell.value}');
             },
@@ -129,8 +129,8 @@ class MatchesTable extends StackedView<MatchesTableModel> {
           child: Checkbox(
             value: rendererContext.cell.value,
             onChanged: (value) {
-              rendererContext.stateManager
-                  .changeCellValue(rendererContext.cell, '$value');
+              int index = rendererContext.rowIdx;
+              viewModel.updateOnlyOnWord(index, value!);
               debugPrint(
                   'MatchesTable: changed cell value to ${rendererContext.cell.value}');
             },
