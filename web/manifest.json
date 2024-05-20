@@ -1,6 +1,6 @@
 {
-    "name": "espanso_gui",
-    "short_name": "espanso_gui",
+    "name": "espanso_gui_v2",
+    "short_name": "espanso_gui_v2",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
