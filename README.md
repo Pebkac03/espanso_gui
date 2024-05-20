@@ -4,6 +4,8 @@ Espanso GUI is my attempt at a graphical user interface for the text expander Es
 
 It currently only works on Windows and it needs Espanso to be installed since it as of now only displays your current configuration. It does not display packages, only base.yml and any other yml files in the same directory.
 
+Espanso GUI is a graphical user interface for the text expander Espanso. It works by reading files in Espanso's matches directory and rendering them as tables where you can edit and save the file it was loaded from. It currently only has limited functionality meaning it WILL mess up your files so do not run it unless you have a backup of your matches directory.
+
 Installation
 ---
 
@@ -13,7 +15,7 @@ To be able to run it and compile it you need the flutter SDK. The easiest way to
 3. Select new project, VS Code will prmopt you to install the Flutter SDK.
 4. Choose download SDK, when prompted "which Flutter template" press Esc.
 5. Follow the instructions choosing install location and adding it to PATH. The path to the directory can't have any special characters and the directory can't require elevated priviliges. Stick with the default if unsure.
-6. Once installed you can either open the directory containing this repo i VS Code and use the "Run debug" button. Or navigate to your the directory in you terminal and use "flutter run" to launch it.
+6. Once installed you can either open the directory containing this repo i VS Code, run flutter pub get, and then use the "Run debug" button. Or navigate to your the directory in you terminal and use "flutter run" to launch it.
 
 The official getting started guide can be found here: https://docs.flutter.dev/get-started/install
 
@@ -23,12 +25,12 @@ Project state
 ### Functionality
 | Feature                | state              | Progress                         |
 | ---------------------- | ------------------ | -------------------------------- |
-| Load configuration     | :white_check_mark: |                                  |
-| Save configuration     | :x:                | Awaiting finished UI             |
-| Works on Windows       | :white_check_mark: |                                  |
-| Works on Linux         | :x:                | Can't read/write config          |
-| Works on Mac           | :x:                | Can't read/write config          |
-| Selectable config path | :x:                | Currently only default directory |
+| Load configuration     | ✅                |                                  |
+| Save configuration     | ✅                | Awaiting finished UI             |
+| Works on Windows       | ✅ |                                  |
+| Works on Linux         | ❌                | Can't read/write config          |
+| Works on Mac           | ❌                | Can't read/write config          |
+| Selectable config path | ❌                | Currently only default directory |
 |                        |                    |                                  |
 
 ### User interface
