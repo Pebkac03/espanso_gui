@@ -23,29 +23,30 @@ Project state
 ---
 
 ### Functionality
-| Feature                | state              | Progress                         |
-| ---------------------- | ------------------ | -------------------------------- |
-| Load configuration     | ✅                |                                  |
-| Save configuration     | ✅                | Awaiting finished UI             |
-| Works on Windows       | ✅ |                                  |
-| Works on Linux         | ❌                | Can't read/write config          |
-| Works on Mac           | ❌                | Can't read/write config          |
-| Selectable config path | ❌                | Currently only default directory |
-|                        |                    |                                  |
+| Feature                | state | Progress                                             |
+| ---------------------- | ----- | ---------------------------------------------------- |
+| Load configuration     | ✅    |                                                      |
+| Save configuration     | ✅*   | Limited functionality for testing, backup before use |
+| Works on Windows       | ✅    |                                                      |
+| Works on Linux         | ❌    | Can't read/write config                              |
+| Works on Mac           | ❌    | Can't read/write config                              |
+| Selectable config path | ❌    | Currently only default directory                     |
+|                        |       |                                                      |
 
 ### User interface
-| Feature                    | State              | Progress                                                   |
-| -------------------------- | ------------------ | ---------------------------------------------------------- |
-| Tabs for categories        | :white_check_mark: |                                                            |
-| List of matches            | :white_check_mark: |                                                            |
-| Label Field                | :x:                | WIP                                                        |
-| Trigger Field              | :white_check_mark: |                                                            |
-| Replace Field              | :x:                | WIP [#3](https://github.com/Pebkac03/espanso_gui/issues/3) |
-| Propagate Case Field       | :white_check_mark: |                                                            |
-| Uppercase Style Field      | :white_check_mark: |                                                            |
-| Trigger Only On Word Field | :white_check_mark: |                                                            |
-| Variables Field            | :x:                | WIP                                                        |
-| Form Fields Field          | :x:                | WIP                                                        |
+| Feature                    | State | Progress                                  |
+| -------------------------- | ----- | ----------------------------------------- |
+| Tabs for categories        | ✅    |                                           |
+| List of matches            | ✅    |                                           |
+| Label Field                | ✅    | Will use trigger if no label exists       |
+| Trigger Field              | ✅    |                                           |
+| Replace Field              | ✅    | Field works but fullscreen editor is WIP  |
+| Replace Editor             | ❌    | WIP, to be ported from before rewrite     |
+| Propagate Case Field       | ✅    |                                           |
+| Uppercase Style Field      | ✅    |                                           |
+| Trigger Only On Word Field | ✅    |                                           |
+| Variables Field            | ❌    | WIP, complex to implement, will take time |
+| Form Fields Field          | ❌    | WIP, complex to implement, will take time |
 
 
 
