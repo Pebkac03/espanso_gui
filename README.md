@@ -1,10 +1,6 @@
 # espanso_gui
 
-Espanso GUI is my attempt at a graphical user interface for the text expander Espanso. The goal is to make something simple enough that it can be used by anyone who is able to use a computer. I am not a professional developer, do not now git well, and my focus is on development. I won't be expanding on the documentation so requesting it as of now is pointless, if you like the project and like to contribute please to so using issues, or fork it and work on it yourself if you want to. I will however not answer pull requests as of now.
-
-It currently only works on Windows and it needs Espanso to be installed since it as of now only displays your current configuration. It does not display packages, only base.yml and any other yml files in the same directory.
-
-Espanso GUI is a graphical user interface for the text expander Espanso. It works by reading files in Espanso's matches directory and rendering them as tables where you can edit and save the file it was loaded from. It currently only has limited functionality meaning it WILL mess up your files so do not run it unless you have a backup of your matches directory.
+Espanso GUI is a graphical user interface for the text expander Espanso. It works by reading files in Espanso's matches directory and rendering them as tables where you can edit and save the file it was loaded from. It currently only has limited functionality meaning it WILL mess up your files so do not run it unless you have a backup of your matches directory. Depends on Espanso being installed in default directory (using the official installer is tested and works, package managers will most likely not).
 
 Installation
 ---
