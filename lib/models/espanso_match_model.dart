@@ -7,7 +7,7 @@ import 'package:yaml/yaml.dart';
 
 part 'espanso_match_model.freezed.dart';
 
-@freezed
+@unfreezed
 class EspansoMatch with _$EspansoMatch {
   EspansoMatch._();
 
@@ -21,7 +21,7 @@ class EspansoMatch with _$EspansoMatch {
     /// The label to display as the match's identifier in UI elements.
     ///
     /// If empty, defaults to first trigger.
-    required String? label,
+    required String label,
 
     /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
     required bool propagateCase,
@@ -44,7 +44,7 @@ class EspansoMatch with _$EspansoMatch {
   /// converts values which are custom objects to dart maps if [recursive] is true
   Map toYaml() {
     final Map result = {
-      trigger.key: trigger.toMap(),
+      trigger.type: trigger.toMap(),
       replace.key: replace.toMap(),
       'label': label,
       'propagate_case': propagateCase,
@@ -62,7 +62,7 @@ class EspansoMatch with _$EspansoMatch {
     EspansoTriggerField parseTrigger(String? trigger, List<String>? triggers) {
       debugPrint('parseTrigger: parseTrigger was succesfully called');
       if (trigger != null) {
-        return EspansoTriggerField(trigger: trigger);
+        return EspansoTriggerField(trigger: trigger.replaceAll('\n', ' '));
       }
       if (triggers != null) {
         return EspansoTriggerField(triggers: triggers);
@@ -96,7 +96,7 @@ class EspansoMatch with _$EspansoMatch {
 
     String parseLabel(String? label) {
       debugPrint('parseLabel: parseLabel was called');
-      return label ?? trigger.defaultLabel;
+      return label?.replaceAll('\n', ' ') ?? trigger.defaultLabel;
     }
 
     final String label = parseLabel(content['label']);

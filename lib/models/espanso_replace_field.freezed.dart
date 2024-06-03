@@ -112,11 +112,6 @@ class _$EspansoReplaceFieldImpl extends _EspansoReplaceField {
   final EspansoReplaceType type;
 
   @override
-  String toString() {
-    return 'EspansoReplaceField(text: $text, type: $type)';
-  }
-
-  @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&

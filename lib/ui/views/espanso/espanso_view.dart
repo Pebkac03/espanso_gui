@@ -1,11 +1,12 @@
-import 'package:espanso_gui_v2/ui/widgets/common/matches_table/matches_table.dart';
+import 'package:espanso_gui_v2/ui/widgets/matches_table2/matches_table2.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import 'espanso_viewmodel.dart';
 
 class EspansoView extends StackedView<EspansoViewModel> {
-  const EspansoView({Key? key}) : super(key: key);
+  static const double borderRadius = 16;
+  const EspansoView({super.key});
 
   @override
   Widget builder(
@@ -26,7 +27,7 @@ class EspansoView extends StackedView<EspansoViewModel> {
         .toList();
 
     final List<Widget> widgets =
-        viewModel.categories.map((e) => MatchesTable(file: e)).toList();
+        viewModel.categories.map((e) => MatchesTable2(file: e)).toList();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Container(
@@ -39,7 +40,8 @@ class EspansoView extends StackedView<EspansoViewModel> {
             padding: const EdgeInsets.all(16.0),
             width: 1030,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(16)),
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(borderRadius)),
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
             ),
             child: Column(

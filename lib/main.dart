@@ -9,7 +9,7 @@ import 'package:stacked_services/stacked_services.dart';
 ThemeData THEME = ThemeData.from(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.green.shade600),
-    textTheme: GoogleFonts.manropeTextTheme());
+    textTheme: GoogleFonts.dmSansTextTheme());
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

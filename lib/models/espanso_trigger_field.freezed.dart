@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$EspansoTriggerField {
   String? get trigger => throw _privateConstructorUsedError;
+  set trigger(String? value) => throw _privateConstructorUsedError;
   List<String>? get triggers => throw _privateConstructorUsedError;
+  set triggers(List<String>? value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EspansoTriggerFieldCopyWith<EspansoTriggerField> get copyWith =>
@@ -93,7 +95,7 @@ class __$$EspansoTriggerFieldImplCopyWithImpl<$Res>
           : trigger // ignore: cast_nullable_to_non_nullable
               as String?,
       triggers: freezed == triggers
-          ? _value._triggers
+          ? _value.triggers
           : triggers // ignore: cast_nullable_to_non_nullable
               as List<String>?,
     ));
@@ -103,39 +105,12 @@ class __$$EspansoTriggerFieldImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EspansoTriggerFieldImpl extends _EspansoTriggerField {
-  _$EspansoTriggerFieldImpl({this.trigger, final List<String>? triggers})
-      : _triggers = triggers,
-        super._();
+  _$EspansoTriggerFieldImpl({this.trigger, this.triggers}) : super._();
 
   @override
-  final String? trigger;
-  final List<String>? _triggers;
+  String? trigger;
   @override
-  List<String>? get triggers {
-    final value = _triggers;
-    if (value == null) return null;
-    if (_triggers is EqualUnmodifiableListView) return _triggers;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
-  @override
-  String toString() {
-    return 'EspansoTriggerField(trigger: $trigger, triggers: $triggers)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EspansoTriggerFieldImpl &&
-            (identical(other.trigger, trigger) || other.trigger == trigger) &&
-            const DeepCollectionEquality().equals(other._triggers, _triggers));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, trigger, const DeepCollectionEquality().hash(_triggers));
+  List<String>? triggers;
 
   @JsonKey(ignore: true)
   @override
@@ -146,15 +121,16 @@ class _$EspansoTriggerFieldImpl extends _EspansoTriggerField {
 }
 
 abstract class _EspansoTriggerField extends EspansoTriggerField {
-  factory _EspansoTriggerField(
-      {final String? trigger,
-      final List<String>? triggers}) = _$EspansoTriggerFieldImpl;
+  factory _EspansoTriggerField({String? trigger, List<String>? triggers}) =
+      _$EspansoTriggerFieldImpl;
   _EspansoTriggerField._() : super._();
 
   @override
   String? get trigger;
+  set trigger(String? value);
   @override
   List<String>? get triggers;
+  set triggers(List<String>? value);
   @override
   @JsonKey(ignore: true)
   _$$EspansoTriggerFieldImplCopyWith<_$EspansoTriggerFieldImpl> get copyWith =>

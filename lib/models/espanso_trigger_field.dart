@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'espanso_trigger_field.freezed.dart';
 
-@freezed
+@unfreezed
 class EspansoTriggerField with _$EspansoTriggerField {
   EspansoTriggerField._();
 
@@ -17,11 +17,14 @@ class EspansoTriggerField with _$EspansoTriggerField {
 
   toMap() => trigger ?? jsonEncode(triggers);
 
-  String get key => trigger == null ? 'triggers' : 'trigger';
+  String get type => triggers == null ? 'trigger' : 'triggers';
+
+  @override
+  String toString() => triggers?.first ?? trigger ?? '';
 
   String get defaultLabel {
     debugPrint('get defaultLabel: getter for default label has been called');
     // see if you can remove null check when assert has been added
-    return trigger ?? triggers?.first ?? '';
+    return toString();
   }
 }

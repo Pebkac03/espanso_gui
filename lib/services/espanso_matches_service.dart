@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:espanso_gui_v2/app/app.locator.dart';

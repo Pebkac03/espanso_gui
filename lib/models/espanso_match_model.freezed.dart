@@ -19,25 +19,48 @@ mixin _$EspansoMatch {
   /// string to trigger expansion
   EspansoTriggerField get trigger => throw _privateConstructorUsedError;
 
+  /// string to trigger expansion
+  set trigger(EspansoTriggerField value) => throw _privateConstructorUsedError;
+
   /// what the trigger expands to
   EspansoReplaceField get replace => throw _privateConstructorUsedError;
+
+  /// what the trigger expands to
+  set replace(EspansoReplaceField value) => throw _privateConstructorUsedError;
 
   /// The label to display as the match's identifier in UI elements.
   ///
   /// If empty, defaults to first trigger.
-  String? get label => throw _privateConstructorUsedError;
+  String get label => throw _privateConstructorUsedError;
+
+  /// The label to display as the match's identifier in UI elements.
+  ///
+  /// If empty, defaults to first trigger.
+  set label(String value) => throw _privateConstructorUsedError;
 
   /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
   bool get propagateCase => throw _privateConstructorUsedError;
 
+  /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
+  set propagateCase(bool value) => throw _privateConstructorUsedError;
+
   /// if propagateCase should capitalize each word. `false` by default
   bool get titleCase => throw _privateConstructorUsedError;
+
+  /// if propagateCase should capitalize each word. `false` by default
+  set titleCase(bool value) => throw _privateConstructorUsedError;
 
   /// only trigger on matching word
   bool get onlyOnWord => throw _privateConstructorUsedError;
 
+  /// only trigger on matching word
+  set onlyOnWord(bool value) => throw _privateConstructorUsedError;
+
   /// list of variables
   List<dynamic> get variables => throw _privateConstructorUsedError;
+
+  /// list of variables
+  set variables(List<dynamic> value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EspansoMatchCopyWith<EspansoMatch> get copyWith =>
@@ -53,7 +76,7 @@ abstract class $EspansoMatchCopyWith<$Res> {
   $Res call(
       {EspansoTriggerField trigger,
       EspansoReplaceField replace,
-      String? label,
+      String label,
       bool propagateCase,
       bool titleCase,
       bool onlyOnWord,
@@ -78,7 +101,7 @@ class _$EspansoMatchCopyWithImpl<$Res, $Val extends EspansoMatch>
   $Res call({
     Object? trigger = null,
     Object? replace = null,
-    Object? label = freezed,
+    Object? label = null,
     Object? propagateCase = null,
     Object? titleCase = null,
     Object? onlyOnWord = null,
@@ -93,10 +116,10 @@ class _$EspansoMatchCopyWithImpl<$Res, $Val extends EspansoMatch>
           ? _value.replace
           : replace // ignore: cast_nullable_to_non_nullable
               as EspansoReplaceField,
-      label: freezed == label
+      label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       propagateCase: null == propagateCase
           ? _value.propagateCase
           : propagateCase // ignore: cast_nullable_to_non_nullable
@@ -144,7 +167,7 @@ abstract class _$$EspansoMatchImplCopyWith<$Res>
   $Res call(
       {EspansoTriggerField trigger,
       EspansoReplaceField replace,
-      String? label,
+      String label,
       bool propagateCase,
       bool titleCase,
       bool onlyOnWord,
@@ -169,7 +192,7 @@ class __$$EspansoMatchImplCopyWithImpl<$Res>
   $Res call({
     Object? trigger = null,
     Object? replace = null,
-    Object? label = freezed,
+    Object? label = null,
     Object? propagateCase = null,
     Object? titleCase = null,
     Object? onlyOnWord = null,
@@ -184,10 +207,10 @@ class __$$EspansoMatchImplCopyWithImpl<$Res>
           ? _value.replace
           : replace // ignore: cast_nullable_to_non_nullable
               as EspansoReplaceField,
-      label: freezed == label
+      label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       propagateCase: null == propagateCase
           ? _value.propagateCase
           : propagateCase // ignore: cast_nullable_to_non_nullable
@@ -201,7 +224,7 @@ class __$$EspansoMatchImplCopyWithImpl<$Res>
           : onlyOnWord // ignore: cast_nullable_to_non_nullable
               as bool,
       variables: null == variables
-          ? _value._variables
+          ? _value.variables
           : variables // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
     ));
@@ -218,80 +241,43 @@ class _$EspansoMatchImpl extends _EspansoMatch {
       required this.propagateCase,
       required this.titleCase,
       required this.onlyOnWord,
-      required final List<dynamic> variables})
-      : _variables = variables,
-        super._();
+      required this.variables})
+      : super._();
 
   /// string to trigger expansion
   @override
-  final EspansoTriggerField trigger;
+  EspansoTriggerField trigger;
 
   /// what the trigger expands to
   @override
-  final EspansoReplaceField replace;
+  EspansoReplaceField replace;
 
   /// The label to display as the match's identifier in UI elements.
   ///
   /// If empty, defaults to first trigger.
   @override
-  final String? label;
+  String label;
 
   /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
   @override
-  final bool propagateCase;
+  bool propagateCase;
 
   /// if propagateCase should capitalize each word. `false` by default
   @override
-  final bool titleCase;
+  bool titleCase;
 
   /// only trigger on matching word
   @override
-  final bool onlyOnWord;
-
-  /// list of variables
-  final List<dynamic> _variables;
+  bool onlyOnWord;
 
   /// list of variables
   @override
-  List<dynamic> get variables {
-    if (_variables is EqualUnmodifiableListView) return _variables;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_variables);
-  }
+  List<dynamic> variables;
 
   @override
   String toString() {
     return 'EspansoMatch(trigger: $trigger, replace: $replace, label: $label, propagateCase: $propagateCase, titleCase: $titleCase, onlyOnWord: $onlyOnWord, variables: $variables)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$EspansoMatchImpl &&
-            (identical(other.trigger, trigger) || other.trigger == trigger) &&
-            (identical(other.replace, replace) || other.replace == replace) &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.propagateCase, propagateCase) ||
-                other.propagateCase == propagateCase) &&
-            (identical(other.titleCase, titleCase) ||
-                other.titleCase == titleCase) &&
-            (identical(other.onlyOnWord, onlyOnWord) ||
-                other.onlyOnWord == onlyOnWord) &&
-            const DeepCollectionEquality()
-                .equals(other._variables, _variables));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      trigger,
-      replace,
-      label,
-      propagateCase,
-      titleCase,
-      onlyOnWord,
-      const DeepCollectionEquality().hash(_variables));
 
   @JsonKey(ignore: true)
   @override
@@ -302,45 +288,68 @@ class _$EspansoMatchImpl extends _EspansoMatch {
 
 abstract class _EspansoMatch extends EspansoMatch {
   factory _EspansoMatch(
-      {required final EspansoTriggerField trigger,
-      required final EspansoReplaceField replace,
-      required final String? label,
-      required final bool propagateCase,
-      required final bool titleCase,
-      required final bool onlyOnWord,
-      required final List<dynamic> variables}) = _$EspansoMatchImpl;
+      {required EspansoTriggerField trigger,
+      required EspansoReplaceField replace,
+      required String label,
+      required bool propagateCase,
+      required bool titleCase,
+      required bool onlyOnWord,
+      required List<dynamic> variables}) = _$EspansoMatchImpl;
   _EspansoMatch._() : super._();
 
   @override
 
   /// string to trigger expansion
   EspansoTriggerField get trigger;
+
+  /// string to trigger expansion
+  set trigger(EspansoTriggerField value);
   @override
 
   /// what the trigger expands to
   EspansoReplaceField get replace;
+
+  /// what the trigger expands to
+  set replace(EspansoReplaceField value);
   @override
 
   /// The label to display as the match's identifier in UI elements.
   ///
   /// If empty, defaults to first trigger.
-  String? get label;
+  String get label;
+
+  /// The label to display as the match's identifier in UI elements.
+  ///
+  /// If empty, defaults to first trigger.
+  set label(String value);
   @override
 
   /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
   bool get propagateCase;
+
+  /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
+  set propagateCase(bool value);
   @override
 
   /// if propagateCase should capitalize each word. `false` by default
   bool get titleCase;
+
+  /// if propagateCase should capitalize each word. `false` by default
+  set titleCase(bool value);
   @override
 
   /// only trigger on matching word
   bool get onlyOnWord;
+
+  /// only trigger on matching word
+  set onlyOnWord(bool value);
   @override
 
   /// list of variables
   List<dynamic> get variables;
+
+  /// list of variables
+  set variables(List<dynamic> value);
   @override
   @JsonKey(ignore: true)
   _$$EspansoMatchImplCopyWith<_$EspansoMatchImpl> get copyWith =>
