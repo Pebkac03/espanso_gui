@@ -57,8 +57,11 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i4.EspansoView: (data) {
+      final args = data.getArgs<EspansoViewArguments>(
+        orElse: () => const EspansoViewArguments(),
+      );
       return _i5.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i4.EspansoView(),
+        builder: (context) => _i4.EspansoView(key: args.key),
         settings: data,
       );
     },
@@ -69,6 +72,28 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
+}
+
+class EspansoViewArguments {
+  const EspansoViewArguments({this.key});
+
+  final _i5.Key? key;
+
+  @override
+  String toString() {
+    return '{"key": "$key"}';
+  }
+
+  @override
+  bool operator ==(covariant EspansoViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode;
+  }
 }
 
 extension NavigatorStateExtension on _i6.NavigationService {
@@ -100,14 +125,16 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToEspansoView([
+  Future<dynamic> navigateToEspansoView({
+    _i5.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.espansoView,
+        arguments: EspansoViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -142,14 +169,16 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithEspansoView([
+  Future<dynamic> replaceWithEspansoView({
+    _i5.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.espansoView,
+        arguments: EspansoViewArguments(key: key),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
