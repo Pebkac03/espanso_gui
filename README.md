@@ -1,9 +1,17 @@
 # espanso_gui
 
-Espanso GUI is a graphical user interface for the text expander Espanso. It works by reading files in Espanso's matches directory and rendering them as tables where you can edit and save the file it was loaded from. It currently only has limited functionality meaning it WILL mess up your files so do not run it unless you have a backup of your matches directory. Depends on Espanso being installed in default directory (using the official installer is tested and works, package managers will most likely not).
+Espanso GUI is a graphical user interface for the text expander Espanso. It works by reading files in Espanso's matches directory and rendering them as tables where you can edit and save the file it was loaded from. It currently only has limited functionality meaning it WILL mess up your files so do not run it unless you have a backup of your matches directory. Depends on Espanso being installed in default directory (using the official installer is tested and works, package managers will most likely not) and currentlu only works on Windows.
 
-Installation
----
+## Installation
+
+### Packaged release
+
+1. Install the Zip file from releases.
+2. Extract Zip, location does not matter.
+3. Run espanso_gui_v2.exe
+
+
+### From source
 
 To be able to run it and compile it you need the flutter SDK. The easiest way to install flutter and use it is through VS Code:
 1. Install VS Code, Git, and the Flutter extension for VS Code.
@@ -15,34 +23,37 @@ To be able to run it and compile it you need the flutter SDK. The easiest way to
 
 The official getting started guide can be found here: https://docs.flutter.dev/get-started/install
 
-Project state
----
+## Project state
+
 
 ### Functionality
-| Feature                | state | Progress                                             |
-| ---------------------- | ----- | ---------------------------------------------------- |
-| Load configuration     | ✅    |                                                      |
-| Save configuration     | ✅*   | Limited functionality for testing, backup before use |
-| Works on Windows       | ✅    |                                                      |
-| Works on Linux         | ❌    | Can't read/write config                              |
-| Works on Mac           | ❌    | Can't read/write config                              |
-| Selectable config path | ❌    | Currently only default directory                     |
-|                        |       |                                                      |
+| Feature                | state | Progress                                                              |
+| ---------------------- | ----- | --------------------------------------------------------------------- |
+| Safe to use            | :x:   | Parts of existing YAML-config will be lost on save. Backup before use |
+| Load configuration     | ✅    |                                                                       |
+| Save configuration     | ✅*   | Limited functionality for testing, backup before use                  |
+| Works on Windows       | ✅    |                                                                       |
+| Works on Linux         | ❌    | Can't read/write config                                               |
+| Works on Mac           | ❌    | Can't read/write config                                               |
+| Selectable config path | ❌    | Currently only default directory                                      |
+|                        |       |                                                                       |
 
 ### User interface
-| Feature                    | State | Progress                                  |
-| -------------------------- | ----- | ----------------------------------------- |
-| Tabs for categories        | ✅    |                                           |
-| List of matches            | ✅    |                                           |
-| Label Field                | ✅    | Will use trigger if no label exists       |
-| Trigger Field              | ✅    |                                           |
-| Replace Field              | ✅    | Field works but fullscreen editor is WIP  |
-| Replace Editor             | ❌    | WIP, to be ported from before rewrite     |
-| Propagate Case Field       | ✅    |                                           |
-| Uppercase Style Field      | ✅    |                                           |
-| Trigger Only On Word Field | ✅    |                                           |
-| Variables Field            | ❌    | WIP, complex to implement, will take time |
-| Form Fields Field          | ❌    | WIP, complex to implement, will take time |
+| Feature                    | State          | Progress                                  |
+| -------------------------- | -------------- | ----------------------------------------- |
+| Tabs for categories        | :construction: | Overflows on to many tabs                 |
+| List of matches            | ✅             |                                           |
+| Label Field                | ✅             | Will use trigger if no label exists       |
+| Trigger Field              | ✅             |                                           |
+| Multi trigger support      | ❌             | WIP, complex to implement, will take time |
+| RegEx trigger support      | ❌             |                                           |
+| Replace Field              | ✅             |                                           |
+| Replace Editor             | :construction: | MVP. No html/markdown, forms, or vars     |
+| Propagate Case Field       | ✅             |                                           |
+| Uppercase Style Field      | ✅             |                                           |
+| Trigger Only On Word Field | ✅             |                                           |
+| Variables Field            | ❌             | WIP, complex to implement, will take time |
+| Form Fields Field          | ❌             | WIP, complex to implement, will take time |
 
 
 
