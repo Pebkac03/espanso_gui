@@ -85,9 +85,15 @@ class MatchesTable2 extends StackedView<MatchesTable2Model> {
             textStyle: textStyle?.copyWith(fontWeight: FontWeight.bold)),
         ...rows(),
         TextButton(
-          child: const Text('print'),
-          onPressed: () => debugPrint(
-              'label: ${viewModel.matches[0].label} trigger: ${viewModel.matches[0].trigger.trigger} replace: ${viewModel.matches[0].replace.text} onlyOnWord: ${viewModel.matches[0].onlyOnWord}'),
+          child: Text(
+            'Save',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          onPressed: () {
+            viewModel.save();
+            debugPrint(
+                'label: ${viewModel.matches[0].label} trigger: ${viewModel.matches[0].trigger.trigger} replace: ${viewModel.matches[0].replace.text} onlyOnWord: ${viewModel.matches[0].onlyOnWord}');
+          },
         )
       ],
     );
