@@ -4,14 +4,21 @@ import 'package:stacked/stacked.dart';
 class LabelFieldModel extends BaseViewModel {
   final TextEditingController textController;
   final void Function(String text) onSubmitted;
+  final double focusWidthFactor;
+  final double offWidth;
   LabelFieldModel({
     required this.textController,
     required this.onSubmitted,
+    required this.offWidth,
+    required this.focusWidthFactor,
   });
   int stackIndex = 0;
 
-  bool _showFocus = false;
-  bool get showFocus => _showFocus;
+  double? _onWidth;
+  double get onWidth => _onWidth ??= offWidth * focusWidthFactor;
+
+  bool? _showFocus;
+  bool get showFocus => _showFocus ?? false;
   set showFocus(bool e) {
     _showFocus = e;
     !e ? stackIndex = 0 : {};

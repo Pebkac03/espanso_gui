@@ -26,8 +26,8 @@ class ReplaceFieldModel extends BaseViewModel {
     return true;
   }
 
-  bool _showFocus = false;
-  bool get showFocus => _showFocus;
+  bool? _showFocus;
+  bool get showFocus => _showFocus ?? false;
 
   set showFocus(bool e) {
     _showFocus = e;

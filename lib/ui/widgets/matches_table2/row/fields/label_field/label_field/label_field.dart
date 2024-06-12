@@ -37,8 +37,6 @@ class LabelField extends StackedView<LabelFieldModel> {
     LabelFieldModel viewModel,
     Widget? child,
   ) {
-    final double onWidth = offWidth * focusWidthFactor;
-
     // the widget which is shown when the field is focused
     final Widget focusedChild = TextField(
       style: textStyle,
@@ -91,7 +89,7 @@ class LabelField extends StackedView<LabelFieldModel> {
             decoration: BoxDecoration(
                 color: Colors.yellow,
                 border: Border.all(
-                    width: viewModel.showFocus ? onWidth : offWidth,
+                    width: viewModel.showFocus ? viewModel.onWidth : offWidth,
                     color: viewModel.showFocus ? onColor : offColor)),
             child: MouseRegion(
               cursor: SystemMouseCursors.text,
@@ -117,5 +115,7 @@ class LabelField extends StackedView<LabelFieldModel> {
         onSubmitted: (text) {
           onSubmitted(text);
         },
+        offWidth: offWidth,
+        focusWidthFactor: focusWidthFactor,
       );
 }

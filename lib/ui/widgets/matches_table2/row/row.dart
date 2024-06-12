@@ -44,6 +44,7 @@ class MatchesTable2Row extends StackedView<MatchesTable2RowModel> {
         LabelField(
           entry: match.label,
           offWidth: offWidth,
+          focusWidthFactor: 2,
           offColor: offColor,
           onColor: onColor,
           rowHeight: rowHeight,
@@ -66,6 +67,7 @@ class MatchesTable2Row extends StackedView<MatchesTable2RowModel> {
         ReplaceField(
           value: match.replace,
           offWidth: offWidth,
+          focusWidthFactor: 1,
           offColor: offColor,
           onColor: onColor,
           rowHeight: rowHeight,
