@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:espanso_gui_v2/ui/widgets/matches_table2/matches_table2.dart';
 import 'package:flutter/material.dart';
+import 'package:overflow_tab_bar/overflow_tab_bar.dart';
 import 'package:stacked/stacked.dart';
 
 import 'espanso_viewmodel.dart';
@@ -21,6 +22,7 @@ class EspansoView extends StackedView<EspansoViewModel> {
     final double tableWidth = max(screenSize * (2 / 3), minWidth * (2 / 3));
     final double spacingWidth = max(screenSize * (1 / 6), minWidth * (1 / 6));
 
+    /*
     final List<Widget> titles = viewModel.titles
         .map((e) => Padding(
               padding: const EdgeInsets.all(8.0),
@@ -30,6 +32,7 @@ class EspansoView extends StackedView<EspansoViewModel> {
               ),
             ))
         .toList();
+        */
 
     final List<Widget> widgets =
         viewModel.categories.map((e) => MatchesTable2(file: e)).toList();
@@ -64,9 +67,9 @@ class EspansoView extends StackedView<EspansoViewModel> {
                       Container(
                           height: 60,
                           padding: const EdgeInsets.only(bottom: 15),
-                          child: TabBar(
-                            // onTap: (e) => hideOverlay(),
-                            tabs: titles,
+                          child: OverflowTabBar(
+                            tabs: viewModel.titles.toList(),
+                            textStyle: Theme.of(context).textTheme.titleMedium,
                           )),
                       Expanded(child: TabBarView(children: widgets)),
                     ],
