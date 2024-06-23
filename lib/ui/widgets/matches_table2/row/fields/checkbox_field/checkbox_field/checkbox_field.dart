@@ -59,7 +59,6 @@ class CheckboxField extends StackedView<CheckboxFieldModel> {
           height: rowHeight,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              color: Colors.yellow,
               border: Border.all(
                   width: viewModel.showFocus ? onWidth : offWidth,
                   color: viewModel.showFocus ? onColor : offColor)),

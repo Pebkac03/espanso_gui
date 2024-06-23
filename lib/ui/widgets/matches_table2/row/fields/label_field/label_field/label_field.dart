@@ -87,7 +87,6 @@ class LabelField extends StackedView<LabelFieldModel> {
             height: rowHeight,
             padding: EdgeInsets.symmetric(horizontal: cellPadding, vertical: 0),
             decoration: BoxDecoration(
-                color: Colors.yellow,
                 border: Border.all(
                     width: viewModel.showFocus ? viewModel.onWidth : offWidth,
                     color: viewModel.showFocus ? onColor : offColor)),

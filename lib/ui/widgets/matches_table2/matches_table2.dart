@@ -40,41 +40,6 @@ class MatchesTable2 extends StackedView<MatchesTable2Model> {
       }).toList();
     }
 
-    /*
-    List<Widget> _getRows() {
-      return [
-        MatchesTable2MenuRow(
-          rowHeight: rowHeight,
-          cellPadding: cellPadding,
-          borderColor: offColor,
-          borderWidth: borderWidth,
-          textStyle: textStyle?.copyWith(fontWeight: FontWeight.bold),
-        ),
-        MatchesTable2Row(
-          offWidth: borderWidth,
-          rowHeight: rowHeight,
-          onColor: onColor,
-          offColor: offColor,
-          textStyle: textStyle,
-        ),
-        MatchesTable2Row(
-          offWidth: borderWidth,
-          rowHeight: rowHeight,
-          onColor: onColor,
-          offColor: offColor,
-          textStyle: textStyle,
-        )
-      ];
-      [].map(
-        (e) {
-          return const Row(
-            children: [],
-          );
-        },
-      ).toList();
-    }
-    */
-
     return ListView(
       children: [
         MatchesTable2MenuRow(

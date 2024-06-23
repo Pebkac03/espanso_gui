@@ -8,6 +8,7 @@
             "name": "espanso_gui (debug mode)",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "debug"
         },
         {
             "name": "espanso_gui (profile mode)",

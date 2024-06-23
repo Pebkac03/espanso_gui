@@ -22,18 +22,6 @@ class EspansoView extends StackedView<EspansoViewModel> {
     final double tableWidth = max(screenSize * (2 / 3), minWidth * (2 / 3));
     final double spacingWidth = max(screenSize * (1 / 6), minWidth * (1 / 6));
 
-    /*
-    final List<Widget> titles = viewModel.titles
-        .map((e) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Tab(
-                child:
-                    Text(e, style: Theme.of(context).textTheme.headlineSmall),
-              ),
-            ))
-        .toList();
-        */
-
     final List<Widget> widgets =
         viewModel.categories.map((e) => MatchesTable2(file: e)).toList();
     return Scaffold(
