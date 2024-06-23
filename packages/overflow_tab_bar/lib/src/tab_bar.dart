@@ -117,16 +117,20 @@ class OverflowTabBarButton extends StatefulWidget {
 class _OverflowTabBarButtonState extends State<OverflowTabBarButton> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      hoverColor: Colors.grey,
-      onTap: () => widget.controller.animateTo(widget.index),
-      child: Padding(
-        padding: widget.padding,
-        child: Text(
-          widget.text,
-          style: widget.textStyle,
-          textScaler: widget.textScaler,
-          maxLines: 1,
+    return Expanded(
+      child: InkWell(
+        hoverColor: Colors.grey,
+        onTap: () => widget.controller.animateTo(widget.index),
+        child: Padding(
+          padding: widget.padding,
+          child: Center(
+            child: Text(
+              widget.text,
+              style: widget.textStyle,
+              textScaler: widget.textScaler,
+              maxLines: 1,
+            ),
+          ),
         ),
       ),
     );
