@@ -1,0 +1,31 @@
+display_name: Espanso GUI
+package_name: espanso_gui
+
+maintainer:
+  name: Jacob Ljungström
+  email: jacob.ljungstrom03@gmail.com
+
+priority: optional
+
+section: x11
+
+dependencies:
+
+essential: false
+
+icon: linux/assets/apidash.png
+
+postuninstall_scripts:
+  - echo "Sorry to see you go."
+
+keywords:
+  - API
+  - API Client
+
+generic_name: API Client
+
+categories:
+  - Development
+  - Utility
+
+startup_notify: true
