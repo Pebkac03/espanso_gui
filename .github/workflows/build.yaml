@@ -44,10 +44,6 @@ jobs:
         run: flutter pub get
       - name: get flutter_distributor
         run: dart pub global activate flutter_distributor
-      - name: Set foobar to cool
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq -i 'installed-size = ' 'config.yml'
       - name: Build release
         run: flutter_distributor release --name=release --jobs=release-linux-deb
       - name: list directory
