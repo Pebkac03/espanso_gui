@@ -19,7 +19,9 @@ mixin _$EspansoReplaceField {
   String get text => throw _privateConstructorUsedError;
   EspansoReplaceType get type => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoReplaceField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EspansoReplaceFieldCopyWith<EspansoReplaceField> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,6 +45,8 @@ class _$EspansoReplaceFieldCopyWithImpl<$Res, $Val extends EspansoReplaceField>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EspansoReplaceField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$EspansoReplaceFieldImplCopyWithImpl<$Res>
       $Res Function(_$EspansoReplaceFieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EspansoReplaceField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -123,7 +129,9 @@ class _$EspansoReplaceFieldImpl extends _EspansoReplaceField {
   @override
   int get hashCode => Object.hash(runtimeType, text, type);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoReplaceField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EspansoReplaceFieldImplCopyWith<_$EspansoReplaceFieldImpl> get copyWith =>
@@ -141,8 +149,11 @@ abstract class _EspansoReplaceField extends EspansoReplaceField {
   String get text;
   @override
   EspansoReplaceType get type;
+
+  /// Create a copy of EspansoReplaceField
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EspansoReplaceFieldImplCopyWith<_$EspansoReplaceFieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

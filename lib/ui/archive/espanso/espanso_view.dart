@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:espanso_gui_v2/ui/widgets/matches_table2/matches_table2.dart';
+import 'package:espanso_gui_v2/ui/archive/matches_table2/matches_table2.dart';
 import 'package:flutter/material.dart';
 import 'package:overflow_tab_bar/overflow_tab_bar.dart';
 import 'package:stacked/stacked.dart';

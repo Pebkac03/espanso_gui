@@ -50,6 +50,7 @@ class MatchesTable2MenuRow extends StackedView<MatchesTable2MenuRowModel> {
         titleCell('Require Word'),
         titleCell('Match trigger capitalization'),
         titleCell('Capitalize each word'),
+        titleCell('Advanced'),
       ],
     );
   }

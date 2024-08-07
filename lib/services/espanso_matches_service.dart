@@ -1,3 +1,4 @@
+//import 'dart:io';
 import 'dart:io';
 
 import 'package:espanso_gui_v2/app/app.locator.dart';
@@ -9,8 +10,25 @@ import 'package:yaml_writer/yaml_writer.dart';
 
 class EspansoMatchesService {
   final _fileService = locator<FileService>();
-  final _path = (Platform.environment['UserProfile'] ?? '') +
-      r'\AppData\Roaming\espanso\match';
+  final String _platform = Platform.operatingSystem;
+  String get _defaultPath {
+    switch (_platform) {
+      case 'windows':
+        return (Platform.environment['UserProfile'] ?? '') +
+            r'\AppData\Roaming\espanso\match';
+      case 'linux':
+        return '';
+      case 'macos':
+        return '';
+      default:
+        return '';
+    }
+  }
+
+  String? _choosenPath;
+  void setPath(path) => _choosenPath = path;
+
+  String get _path => _choosenPath ?? _defaultPath;
   final _yamlWriter = YamlWriter();
 
   Map<String, List<EspansoMatch>> loadAllMatches() {

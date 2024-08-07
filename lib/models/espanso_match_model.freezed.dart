@@ -62,7 +62,9 @@ mixin _$EspansoMatch {
   /// list of variables
   set variables(List<dynamic> value) => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EspansoMatchCopyWith<EspansoMatch> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -96,6 +98,8 @@ class _$EspansoMatchCopyWithImpl<$Res, $Val extends EspansoMatch>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,6 +143,8 @@ class _$EspansoMatchCopyWithImpl<$Res, $Val extends EspansoMatch>
     ) as $Val);
   }
 
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EspansoTriggerFieldCopyWith<$Res> get trigger {
@@ -147,6 +153,8 @@ class _$EspansoMatchCopyWithImpl<$Res, $Val extends EspansoMatch>
     });
   }
 
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $EspansoReplaceFieldCopyWith<$Res> get replace {
@@ -187,6 +195,8 @@ class __$$EspansoMatchImplCopyWithImpl<$Res>
       _$EspansoMatchImpl _value, $Res Function(_$EspansoMatchImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -279,7 +289,9 @@ class _$EspansoMatchImpl extends _EspansoMatch {
     return 'EspansoMatch(trigger: $trigger, replace: $replace, label: $label, propagateCase: $propagateCase, titleCase: $titleCase, onlyOnWord: $onlyOnWord, variables: $variables)';
   }
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EspansoMatchImplCopyWith<_$EspansoMatchImpl> get copyWith =>
@@ -297,61 +309,63 @@ abstract class _EspansoMatch extends EspansoMatch {
       required List<dynamic> variables}) = _$EspansoMatchImpl;
   _EspansoMatch._() : super._();
 
-  @override
-
   /// string to trigger expansion
+  @override
   EspansoTriggerField get trigger;
 
   /// string to trigger expansion
   set trigger(EspansoTriggerField value);
-  @override
 
   /// what the trigger expands to
+  @override
   EspansoReplaceField get replace;
 
   /// what the trigger expands to
   set replace(EspansoReplaceField value);
-  @override
 
   /// The label to display as the match's identifier in UI elements.
   ///
   /// If empty, defaults to first trigger.
+  @override
   String get label;
 
   /// The label to display as the match's identifier in UI elements.
   ///
   /// If empty, defaults to first trigger.
   set label(String value);
-  @override
 
   /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
+  @override
   bool get propagateCase;
 
   /// ex. alh - although, Alh - Although, ALH - ALTHOUGH
   set propagateCase(bool value);
-  @override
 
   /// if propagateCase should capitalize each word. `false` by default
+  @override
   bool get titleCase;
 
   /// if propagateCase should capitalize each word. `false` by default
   set titleCase(bool value);
-  @override
 
   /// only trigger on matching word
+  @override
   bool get onlyOnWord;
 
   /// only trigger on matching word
   set onlyOnWord(bool value);
-  @override
 
   /// list of variables
+  @override
   List<dynamic> get variables;
 
   /// list of variables
   set variables(List<dynamic> value);
+
+  /// Create a copy of EspansoMatch
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EspansoMatchImplCopyWith<_$EspansoMatchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

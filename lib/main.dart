@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:espanso_gui_v2/app/app.bottomsheets.dart';
 import 'package:espanso_gui_v2/app/app.dialogs.dart';
 import 'package:espanso_gui_v2/app/app.locator.dart';
 import 'package:espanso_gui_v2/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Routes.espansoView,
+      initialRoute: Routes.espansoNewView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [

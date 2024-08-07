@@ -697,6 +697,15 @@ class MockDialogService extends _i1.Mock implements _i3.DialogService {
 class MockEspansoMatchesService extends _i1.Mock
     implements _i7.EspansoMatchesService {
   @override
+  void setPath(dynamic path) => super.noSuchMethod(
+        Invocation.method(
+          #setPath,
+          [path],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
   Map<String, List<_i8.EspansoMatch>> loadAllMatches() => (super.noSuchMethod(
         Invocation.method(
           #loadAllMatches,

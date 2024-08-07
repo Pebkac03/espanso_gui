@@ -6,6 +6,15 @@ class MatchesTable2RowModel extends BaseViewModel {
   final EspansoMatch match;
   MatchesTable2RowModel({required this.match});
 
+  bool _visibility = false;
+  bool get visibility => _visibility;
+  set visibility(e) {
+    _visibility = e;
+    rebuildUi();
+  }
+
+  bool advancedMode = false;
+
   bool get labelFocused => labelFocusNode.hasFocus;
   bool get triggerFocused => triggerFocusNode.hasFocus;
   bool get replaceFocused => replaceFocusNode.hasFocus;

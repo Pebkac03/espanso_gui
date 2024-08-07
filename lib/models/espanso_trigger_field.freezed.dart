@@ -21,7 +21,9 @@ mixin _$EspansoTriggerField {
   List<String>? get triggers => throw _privateConstructorUsedError;
   set triggers(List<String>? value) => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoTriggerField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $EspansoTriggerFieldCopyWith<EspansoTriggerField> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$EspansoTriggerFieldCopyWithImpl<$Res, $Val extends EspansoTriggerField>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of EspansoTriggerField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +87,8 @@ class __$$EspansoTriggerFieldImplCopyWithImpl<$Res>
       $Res Function(_$EspansoTriggerFieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of EspansoTriggerField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,7 +118,9 @@ class _$EspansoTriggerFieldImpl extends _EspansoTriggerField {
   @override
   List<String>? triggers;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of EspansoTriggerField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$EspansoTriggerFieldImplCopyWith<_$EspansoTriggerFieldImpl> get copyWith =>
@@ -131,8 +139,11 @@ abstract class _EspansoTriggerField extends EspansoTriggerField {
   @override
   List<String>? get triggers;
   set triggers(List<String>? value);
+
+  /// Create a copy of EspansoTriggerField
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$EspansoTriggerFieldImplCopyWith<_$EspansoTriggerFieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

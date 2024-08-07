@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:espanso_gui_v2/ui/widgets/matches_table2/menu_row/matches_table2_menu_row.dart';
-import 'package:espanso_gui_v2/ui/widgets/matches_table2/row/row.dart';
+import 'package:espanso_gui_v2/ui/archive/matches_table2/menu_row/matches_table2_menu_row.dart';
+import 'package:espanso_gui_v2/ui/archive/matches_table2/row/row.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
