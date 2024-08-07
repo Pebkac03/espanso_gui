@@ -44,7 +44,7 @@ jobs:
         run: flutter pub get
       - name: get flutter_distributor
         run: dart pub global activate flutter_distributor
-      - name: Build release
-        run: flutter_distributor release --name=release --jobs=release-linux-deb
+      # - name: Build release
+      #   run: flutter_distributor release --name=release --jobs=release-linux-deb
       - name: list directory
-        run: ls- a
+        run: ls -a
