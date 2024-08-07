@@ -31,7 +31,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           # Define which stable flutter version should be used
-          flutter-version: "3.23.0"
+          flutter-version: "3.23.0-0.1.pre"
           channel: "beta"
           # Enables cache for flutter packages
           # Speed up the process
