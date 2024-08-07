@@ -49,9 +49,9 @@ jobs:
       - name: list directory
         run: ls -a
       - name: build linux
-        run: flutter build linux
+        run: flutter build linux --release
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
           name: linux-build
-          path: build/linux/x64/release/bundle/espanso_gui_v2
+          path: build/linux/x64/release/bundle/
